@@ -21,3 +21,8 @@ and Inception Score metric using the DeepFashion dataset.
 
 
 # Architecture of POLY-GAN
+![Alt text](https://github.com/nile649/POLY-GAN/blob/master/images/Pipeline_Poly_Gan_final_3.png?raw=true "Flow Diagram")
+
+![Alt text](https://github.com/nile649/POLY-GAN/blob/master/images/Poly_Gan_Inside(1)(2)(3)(1)(1).png?raw=true "Architecture")
+
+Stage 1 (Wrap):
