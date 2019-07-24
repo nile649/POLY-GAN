@@ -3,6 +3,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
 
+# ResNet module to process the incoming filters. We are using Instance Norm replacing traditional BatchNorm.
+# BatchNorm doesn't plays any significant role, since our batch is very small, another thing we observed is 
+# that the feature maps don't face covariate shift in ResNet block as the dataset are very close to each other.
+# removing Norm from ResNet block doesn't affects the model resutl.
 
 class ResidualBlock(nn.Module):
     def __init__(self, in_features, out_features):
@@ -21,6 +25,7 @@ class ResidualBlock(nn.Module):
     def forward(self, x):
         return x + self.conv_block(x)
 
+    
 
 class ConvBlock(nn.Module):
     def __init__(self, in_features, out_features):
@@ -39,6 +44,9 @@ class ConvBlock(nn.Module):
     def forward(self, x):
         return self.conv_block(x)
 
+# Over the cause of GAN history we did infer that if we replace unknown region with Noise, then GANs can effectively 
+# generate the missing regions (effectively implies to generate something).
+# We didn't test with different Noise, and their affects in detail.
 
 class NoiseInjection(nn.Module):
     def __init__(self, channel):
@@ -52,6 +60,10 @@ class NoiseInjection(nn.Module):
         mask = mask[:, :1, :, :].repeat(1, image.shape[1], 1, 1)
         return image + self.weight * noise * mask
 
+
+    
+# model_ds downsamples the feature maps, we use stride = 2 to downsample feature maps instead of 
+# max pooling layer which is not learnable.
 
 class model_ds(nn.Module):
     def __init__(self, in_features, out_features):
@@ -67,6 +79,11 @@ class model_ds(nn.Module):
         return self.conv_block(x)
 
 
+ # model_up Upsamples the feature maps again with a layer which is learnable, we didn't use any other method since 
+# nn.Upsample has no learnable weights, the other layer that we could have tried is sub-pixel which also learns to 
+# upsample / downsmaple. 
+
+    
 class model_up(nn.Module):
     def __init__(self, in_features, out_features):
         super(model_up, self).__init__()
@@ -413,7 +430,8 @@ class GeneratorStitch(nn.Module):
         conds.append(src)
         style = torch.cat(conds, 1)
         y = torch.cat([torch.randn(1, 1, src.shape[2], src.shape[3]).cuda(), style], 1)
-
+        
+ ############## Encoder #######################
         y = self.model_input_cloth(y)
 
         y128 = self.block128(y)
@@ -458,6 +476,10 @@ class GeneratorStitch(nn.Module):
 
         return out, s_128, s_64, s_32, s_16, s_8, s_4
 
+    
+    
+    
+    
 
 # Discriminator
 # https://github.com/aitorzip/PyTorch-SRGAN/blob/master/models.py
