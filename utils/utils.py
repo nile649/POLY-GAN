@@ -3,6 +3,11 @@ import numpy as np
 from torch.autograd import Variable
 import random
 
+# Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial Network
+# ReplayBuffer was first introduced in the above mentioned paper, It's effect mathematically has been supported in 
+# latest ICLR paper ProbGAN. Replay buffer uses previous data as prior for the Discriminator which it has seen already.
+# Page 5 of the paper, just over Theory section.
+# Hence we propose to maintain a subset of discriminators by subsampling the whole sequence of discriminators.
 
 class ReplayBuffer():
     def __init__(self, max_size=50):
@@ -26,7 +31,7 @@ class ReplayBuffer():
                     to_return.append(element)
         return Variable(torch.cat(to_return))
 
-
+# LambdaLR is use for Learning rate scheduling (Not used in main code).
 class LambdaLR():
     def __init__(self, n_epochs, offset, decay_start_epoch):
         assert ((n_epochs - decay_start_epoch) > 0), "Decay must start before the training session ends!"
@@ -37,6 +42,7 @@ class LambdaLR():
     def step(self, epoch):
         return 1.0 - max(0, epoch + self.offset - self.decay_start_epoch) / (self.n_epochs - self.decay_start_epoch)
 
+# Initialize kernel weights to uniform. We are not using BatchNorm in final code.
 
 def weights_init_normal(m):
     classname = m.__class__.__name__
