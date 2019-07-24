@@ -10,13 +10,13 @@ from utils.utils import ReplayBuffer, weights_init_normal, LambdaLR
 
 def get_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--j', type=int, default=0)
-    parser.add_argument('--b', type=int, default=1)
+    parser.add_argument('--j', type=int, default=0) # number of workers/thread to use for loading data
+    parser.add_argument('--b', type=int, default=1) # batch size
     parser.add_argument("--dataroot", default = "data")
     parser.add_argument("--datamode", default = "train")
     parser.add_argument("--stage", default = "Shape",help='Shape, Stitch, Refine')
     parser.add_argument("--data_list", default = "train_pairs.txt")
-    parser.add_argument("--radius", type=int, default = 5)
+    parser.add_argument("--radius", type=int, default = 5) # skeleton width
     parser.add_argument("--grid_size", type=int, default = 5)
     parser.add_argument('--lr', type=float, default=0.0002, help='initial learning rate for adam')
     parser.add_argument("--display_count", type=int, default = 1000)
@@ -26,7 +26,7 @@ def get_opt():
     parser.add_argument("--input_channel", type=int, default = 6)
     parser.add_argument("--decay_epoch", type=int, default = 10)
     parser.add_argument('--results', type=str, default='results/Shape', help='save results')
-    parser.add_argument("--critic", type=int, default = 10)
+    parser.add_argument("--critic", type=int, default = 10) # Number of times after which to update Discriminator.
     parser.add_argument("--save_model", type=int, default = 2)
     opt = parser.parse_args()
     return opt
