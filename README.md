@@ -56,10 +56,10 @@ The dataset used is borrowed from the code CP-VTON
 https://github.com/sergeywong/cp-vton
 
 # Cite:
-@article{PANDEY2020,
-title = "Poly-GAN: Multi-Conditioned GAN for Fashion Synthesis",
-journal = "Neurocomputing",
-year = "2020",
-issn = "0925-2312",
-author = "Nilesh Pandey and Andreas Savakis",
-}
+        @article{PANDEY2020,
+        title = "Poly-GAN: Multi-Conditioned GAN for Fashion Synthesis",
+        journal = "Neurocomputing",
+        year = "2020",
+        issn = "0925-2312",
+        author = "Nilesh Pandey and Andreas Savakis",
+        }
