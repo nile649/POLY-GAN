@@ -26,10 +26,7 @@ and Inception Score metric using the DeepFashion dataset.
 ![Alt text](https://github.com/nile649/POLY-GAN/blob/master/images/Poly_Gan_Inside(1)(2)(3)(1)(1).png?raw=true "Architecture")
 
 # Libraries:
-1. Pytorch 0.4.1+, Skimage, Jupyter Notebook, OpenCV.
-2. GPU 4GB+ is sufficient
-3. CPU should be considered, as most of the pre-process in our training were online.
-4. Ubuntu 16.04
+cat requirements.txt | xargs -n 1 pip install
 
 # Dataset Preparation:
 Download dataset from https://github.com/sergeywong/cp-vton.
@@ -40,10 +37,12 @@ We may provide dataset in future.
 
 
 # Test:
-Download pre-trained models from https://drive.google.com/drive/folders/18eu3OrNh9TbmiED0sotbzGPtLCCecSeT?usp=sharing
+Download pre-trained models and Data from https://drive.google.com/drive/folders/18eu3OrNh9TbmiED0sotbzGPtLCCecSeT?usp=sharing
 It has pre-trained weights for Stage 1, Stage 2 and Stage 3.
 
 Stage 3 is not required, but it helps in most of the cases.
 
 In test.py, you need to provide location of the pre-trained weights of the stage you will be testing, Target and Reference Image name as well.
 
+The dataset used is borrowed from the code CP-VTON
+https://github.com/sergeywong/cp-vton
