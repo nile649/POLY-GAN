@@ -38,13 +38,6 @@ and Inception Score metric using the DeepFashion dataset.
 # Libraries:
 cat requirements.txt | xargs -n 1 pip install
 
-# Dataset Preparation:
-Download dataset from https://github.com/sergeywong/cp-vton.
-We may provide dataset in future.
-1. Pose estimator framework (LCR Net++, OpenPose).
-2. Segmentation framework (Unet, Unet++).
-3. Follow the steps in paper.
-
 # Test:
 Download pre-trained models and Data from https://drive.google.com/drive/folders/18eu3OrNh9TbmiED0sotbzGPtLCCecSeT?usp=sharing
 It has pre-trained weights for Stage 1, Stage 2 and Stage 3.
