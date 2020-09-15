@@ -95,15 +95,15 @@ class ImgAugTransformStitching:
 
 class PolyDatasetStitch(data.Dataset):
     """
-    Dataset for Poly-VTON.
+    Dataset for Poly-GAN.
 
     """
 
     def __init__(self, height):
         super(PolyDatasetStitch, self).__init__()
         # base setting
-
-        self.root = '/home/np9207/vton/data/'
+        path_ = os.getcwd()
+        self.root = path_+'/data/'
         self.datamode = 'train'  # train or test or self-define
         self.data_list = "train_pairs.txt"
         self.fine_height = height
@@ -336,14 +336,14 @@ class ImgAugTransform:
 
 
 class PolyDatasetShape(data.Dataset):
-    """Dataset for Ploy-VTON.
+    """Dataset for Ploy-GAN.
     """
 
     def __init__(self, height):
         super(PolyDatasetShape, self).__init__()
         # base setting
-
-        self.root = '/home/np9207/vton/data/'
+        path_ = os.getcwd()
+        self.root = path_+'/data/'
         self.datamode = 'train'  # train or test or self-define
         self.data_list = "train_pairs.txt"
         self.fine_height = height
@@ -562,13 +562,14 @@ class ImgAugTransformRefine:
 
 
 class PolyDatasetRefine(data.Dataset):
-    """Dataset for CP-VTON.
+    """Dataset for Poly-GAN.
     """
     def __init__(self,height):
         super(PolyDatasetRefine, self).__init__()
         # base setting
        
-        self.root = '/home/np9207/vton/data/'
+        path_ = os.getcwd()
+        self.root = path_+'/data/'
         self.datamode = 'train' # train or test or self-define
         self.data_list = "train_pairs.txt"
         self.fine_height = height
@@ -708,8 +709,9 @@ class PolyDatasetRefine(data.Dataset):
 
 class data_loader():
     def __init__(self,mode="train"):
-
-        self.root = '/home/np9207/vton/data/'
+# Please mention the appropriate path
+        path_ = os.getcwd()
+        self.root = path_+'/data/'
         self.datamode = mode # train or test or self-define
         self.fine_height = 128
         self.fine_width = 128
