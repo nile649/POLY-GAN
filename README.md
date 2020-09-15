@@ -45,7 +45,6 @@ We may provide dataset in future.
 2. Segmentation framework (Unet, Unet++).
 3. Follow the steps in paper.
 
-
 # Test:
 Download pre-trained models and Data from https://drive.google.com/drive/folders/18eu3OrNh9TbmiED0sotbzGPtLCCecSeT?usp=sharing
 It has pre-trained weights for Stage 1, Stage 2 and Stage 3.
@@ -55,3 +54,12 @@ In test.py, you need to provide location of the pre-trained weights of the stage
 
 The dataset used is borrowed from the code CP-VTON
 https://github.com/sergeywong/cp-vton
+
+# Cite:
+@article{PANDEY2020,
+title = "Poly-GAN: Multi-Conditioned GAN for Fashion Synthesis",
+journal = "Neurocomputing",
+year = "2020",
+issn = "0925-2312",
+author = "Nilesh Pandey and Andreas Savakis",
+}
