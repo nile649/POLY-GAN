@@ -19,6 +19,16 @@ and inpainting on the garment mask when it contains irregular holes. Our system
 achieves state-of-the-art quantitative results on Structural Similarity Index metric
 and Inception Score metric using the DeepFashion dataset.
 
+# Result
+| Method           | SSIM          | IS      |
+| ---------------- |:-------------:| -------:|
+| CP-VTON          | 0.688         | 2.6049  |
+| MG-VTON          | 0.744         |   3.03  |
+| Poly-GAN Stage 2 | 0.7174        |  2.8193 |
+| Poly-GAN Stage 3 | 0.7369        |  2.6549 |
+| Poly-GAN Stage 4 | 0.7251        |  2.7904 |
+
+
 
 # Architecture of POLY-GAN
 ![Alt text](https://github.com/nile649/POLY-GAN/blob/master/images/Pipeline_Poly_Gan_final_3.png?raw=true "Flow Diagram")
