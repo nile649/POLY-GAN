@@ -1,3 +1,4 @@
+# Important : Experimental Research Code
 # POLY-GAN
 Poly-GAN: Multi-Conditioned GAN for Fashion Synthesis
 # Abstract
