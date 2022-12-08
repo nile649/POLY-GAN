@@ -21,7 +21,7 @@ boto==2.49.0
 Bottleneck==1.2.1
 cairocffi==1.1.0
 CairoSVG==2.4.2
-certifi==2018.11.29
+certifi==2022.12.7
 cffi==1.11.5
 chardet==3.0.4
 Click==7.0
